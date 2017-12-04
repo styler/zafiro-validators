@@ -1,0 +1,53 @@
+{
+  "name": "joi-decorators",
+  "version": "1.0.0",
+  "description": "Decorator based interface for Joi",
+  "main": "lib/index.js",
+  "jsnext:main": "es/index.js",
+  "typings": "./dts/index.d.ts",
+  "scripts": {
+    "setup": "sh ./bin/setup.sh",
+    "test": "gulp",
+    "publish-please": "publish-please",
+    "prepublish": "publish-please guard"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZafiroJS/joi-decorators.git"
+  },
+  "keywords": [
+    "validation"
+  ],
+  "author": "Remo H. Jansen <remo.jansen@wolksoftware.com> (http://www.remojansen.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ZafiroJS/joi-decorators/issues"
+  },
+  "homepage": "https://github.com/ZafiroJS/joi-decorators#readme",
+  "devDependencies": {
+    "@types/chai": "4.0.6",
+    "@types/mocha": "2.2.44",
+    "@types/node": "8.0.53",
+    "@types/supertest": "2.0.4",
+    "@types/joi": "13.0.1",
+    "chai": "4.1.2",
+    "del": "3.0.0",
+    "gulp": "3.9.1",
+    "gulp-istanbul": "1.1.2",
+    "gulp-mocha": "3.0.1",
+    "gulp-tslint": "8.1.2",
+    "gulp-typescript": "3.2.3",
+    "mocha": "4.0.1",
+    "publish-please": "2.3.1",
+    "reflect-metadata": "0.1.10",
+    "run-sequence": "2.2.0",
+    "source-map-support": "0.5.0",
+    "ts-node": "3.3.0",
+    "tslint": "5.8.0",
+    "typescript": "2.6.2"
+  },
+  "dependencies": {
+    "joi": "13.0.2",
+    "tslib": "1.8.0"
+  }
+}
