@@ -1,5 +1,13 @@
 # joi-decorators
 
+[![Join the chat at https://gitter.im/inversify/InversifyJS](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/inversify/InversifyJS?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![npm version](https://badge.fury.io/js/joi-decorators.svg)](http://badge.fury.io/js/joi-decorators)
+[![Build Status](https://travis-ci.org/ZafiroJS/joi-decorators.svg?branch=master)](https://travis-ci.org/ZafiroJS/joi-decorators)
+[![Dependencies](https://david-dm.org/ZafiroJS/joi-decorators.svg)](https://david-dm.org/ZafiroJS/joi-decorators#info=dependencies)
+[![img](https://david-dm.org/ZafiroJS/joi-decorators/dev-status.svg)](https://david-dm.org/ZafiroJS/joi-decorators/#info=devDependencies)
+[![Known Vulnerabilities](https://snyk.io/test/github/ZafiroJS/joi-decorators/badge.svg)](https://snyk.io/test/github/ZafiroJS/joi-decorators)
+[![Twitter Follow](https://img.shields.io/twitter/follow/InversifyJS.svg?style=flat&maxAge=86400)](https://twitter.com/inversifyjs)
+
 Decorator based interface for [Joi](https://www.npmjs.com/package/joi).
 
 ## Installation
