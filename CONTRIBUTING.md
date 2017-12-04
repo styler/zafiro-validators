@@ -5,7 +5,7 @@
 1 Clone your fork of the repository
 
 ```sh
-git clone https://github.com/YOUR_USERNAME/joi-decorators.git
+git clone https://github.com/YOUR_USERNAME/zafiro-validators.git
 ```
 
 2 Setup

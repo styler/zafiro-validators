@@ -6,7 +6,7 @@ import {
     noMetadataWasFound
 } from "../src/error";
 
-describe("joi-decorators", () => {
+describe("zafiro-validators", () => {
 
     it("Should throw if @mustBe is applied to a method", () => {
 

@@ -1,11 +1,11 @@
-# joi-decorators
+# zafiro-validators
 
 [![Join the chat at https://gitter.im/inversify/InversifyJS](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/inversify/InversifyJS?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![npm version](https://badge.fury.io/js/joi-decorators.svg)](http://badge.fury.io/js/joi-decorators)
-[![Build Status](https://travis-ci.org/ZafiroJS/joi-decorators.svg?branch=master)](https://travis-ci.org/ZafiroJS/joi-decorators)
-[![Dependencies](https://david-dm.org/ZafiroJS/joi-decorators.svg)](https://david-dm.org/ZafiroJS/joi-decorators#info=dependencies)
-[![img](https://david-dm.org/ZafiroJS/joi-decorators/dev-status.svg)](https://david-dm.org/ZafiroJS/joi-decorators/#info=devDependencies)
-[![Known Vulnerabilities](https://snyk.io/test/github/ZafiroJS/joi-decorators/badge.svg)](https://snyk.io/test/github/ZafiroJS/joi-decorators)
+[![npm version](https://badge.fury.io/js/zafiro-validators.svg)](http://badge.fury.io/js/zafiro-validators)
+[![Build Status](https://travis-ci.org/ZafiroJS/zafiro-validators.svg?branch=master)](https://travis-ci.org/ZafiroJS/zafiro-validators)
+[![Dependencies](https://david-dm.org/ZafiroJS/zafiro-validators.svg)](https://david-dm.org/ZafiroJS/zafiro-validators#info=dependencies)
+[![img](https://david-dm.org/ZafiroJS/zafiro-validators/dev-status.svg)](https://david-dm.org/ZafiroJS/zafiro-validators/#info=devDependencies)
+[![Known Vulnerabilities](https://snyk.io/test/github/ZafiroJS/zafiro-validators/badge.svg)](https://snyk.io/test/github/ZafiroJS/zafiro-validators)
 [![Twitter Follow](https://img.shields.io/twitter/follow/InversifyJS.svg?style=flat&maxAge=86400)](https://twitter.com/inversifyjs)
 
 Decorator based interface for [Joi](https://www.npmjs.com/package/joi).
@@ -13,13 +13,13 @@ Decorator based interface for [Joi](https://www.npmjs.com/package/joi).
 ## Installation
 
 ```sh
-npm install joi-decorators reflect-metadata
+npm install zafiro-validators reflect-metadata
 ```
 
 ## The basics
 
 ```ts
-import { shouldBe, a, validate } from "joi-decorators";
+import { shouldBe, a, validate } from "zafiro-validators";
 
 class User {
     @mustBe(a.string().alphanum().min(3).max(30).required())

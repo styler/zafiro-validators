@@ -1,5 +1,5 @@
 {
-  "name": "joi-decorators",
+  "name": "zafiro-validators",
   "version": "1.0.0",
   "description": "Decorator based interface for Joi",
   "main": "lib/index.js",
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ZafiroJS/joi-decorators.git"
+    "url": "git+https://github.com/ZafiroJS/zafiro-validators.git"
   },
   "keywords": [
     "validation"
@@ -21,9 +21,9 @@
   "author": "Remo H. Jansen <remo.jansen@wolksoftware.com> (http://www.remojansen.com)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ZafiroJS/joi-decorators/issues"
+    "url": "https://github.com/ZafiroJS/zafiro-validators/issues"
   },
-  "homepage": "https://github.com/ZafiroJS/joi-decorators#readme",
+  "homepage": "https://github.com/ZafiroJS/zafiro-validators#readme",
   "devDependencies": {
     "@types/chai": "4.0.6",
     "@types/mocha": "2.2.44",
