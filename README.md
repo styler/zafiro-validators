@@ -10,7 +10,7 @@
 
 Decorator based interface for [Joi](https://www.npmjs.com/package/joi).
 
-:warning: This library is part of the [Zafiro]() ecosystem but it is standalone and can be used on its own.
+> :warning: This library is part of the [Zafiro]() ecosystem but it is **standalone and can be used on its own**.
 
 ## Installation
 
@@ -18,12 +18,16 @@ Decorator based interface for [Joi](https://www.npmjs.com/package/joi).
 npm install zafiro-validators reflect-metadata
 ```
 
+> :warning: **The `reflect-metadata` polyfill should be imported only once in your entire application** because the Reflect object is mean to be a global singleton. More details about this can be found [here](https://github.com/inversify/InversifyJS/issues/262#issuecomment-227593844).
+
 ## The basics
 
-```ts
-import { shouldBe, a, validate } from "zafiro-validators";
+First you need to declare an entity:
 
-class User {
+```ts
+import { mustBe, a } from "zafiro-validators";
+
+export class User {
     @mustBe(a.string().alphanum().min(3).max(30).required())
     public username: string;
     @mustBe(a.string().regex(/^[a-zA-Z0-9]{3,30}$/))
@@ -48,6 +52,14 @@ class User {
         this.email = email;
     }
 }
+```
+
+Then you can validate the entity instances:
+
+```ts
+import { validate } from "zafiro-validators";
+import { expect } from "chai";
+import {  User } from "./entities/user";
 
 const validUser = new User(
     "root",
@@ -88,9 +100,13 @@ expect(result3.error.message).to.eql(
 );
 ```
 
-You can also invoke `validate` for object literals but you will need to pass the expected schema as `validate(literal, Class)`:
+You can also validate object literals (as opposed to instances of a class) but you will need to pass the expected schema to `validate `as `validate(literal, Class)`:
 
 ```ts
+import { validate } from "zafiro-validators";
+import { expect } from "chai";
+import {  User } from "./entities/user";
+
 const user2 = {
     username: "root",
     password: "secret$",
