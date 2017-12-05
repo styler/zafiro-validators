@@ -164,4 +164,72 @@ describe("zafiro-validators", () => {
 
     });
 
+    it("Should be able to validate an object with with a given Object", () => {
+
+        class User {
+            @mustBe(a.string().alphanum().min(3).max(30).required())
+            public username: string;
+            @mustBe(a.string().regex(/^[a-zA-Z0-9]{3,30}$/))
+            public password: string;
+            @mustBe([a.string(), a.number()])
+            public accessToken: string|number;
+            @mustBe(a.number().integer().min(1900).max(2013))
+            public birthyear: number;
+            @mustBe(a.string().email())
+            public email: string;
+            public constructor(
+                username: string,
+                password: string,
+                accessToken: string|number,
+                birthyear: number,
+                email: string
+            ) {
+                this.username = username;
+                this.password = password;
+                this.accessToken = accessToken;
+                this.birthyear = birthyear;
+                this.email = email;
+            }
+        }
+
+        const user1 = {
+            username: "root",
+            password: "secret",
+            accessToken: "token",
+            birthyear: 1989,
+            email: "test@test.com"
+        };
+
+        const result1 = validate(user1, User);
+        expect(result1.error).to.eql(null);
+
+        const user2 = {
+            username: "root",
+            password: "secret$",
+            accessToken: "token",
+            birthyear: 1989,
+            email: "test@test.com"
+        };
+
+        const result2 = validate(user2, User);
+        expect(result2.error.message).to.eql(
+            `child "password" fails because ["password" with value "secret$" ` +
+            `fails to match the required pattern: /^[a-zA-Z0-9]{3,30}$/]`
+        );
+
+        const user3 = {
+            username: "root",
+            password: "secret",
+            accessToken: "token",
+            birthyear: 1989,
+            email: "test@@test.com"
+        };
+
+        const result3 = validate(user3, User);
+        expect(result3.error.message).to.eql(
+            `child "email" fails because ["email" must be a valid email]`
+        );
+
+    });
+
 });

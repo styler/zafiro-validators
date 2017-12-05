@@ -10,6 +10,8 @@
 
 Decorator based interface for [Joi](https://www.npmjs.com/package/joi).
 
+:warning: This library is part of the [Zafiro]() ecosystem but it is standalone and can be used on its own.
+
 ## Installation
 
 ```sh
@@ -27,7 +29,7 @@ class User {
     @mustBe(a.string().regex(/^[a-zA-Z0-9]{3,30}$/))
     public password: string;
     @mustBe([a.string(), a.number()])
-    public access_token: string|number;
+    public accessToken: string|number;
     @mustBe(a.number().integer().min(1900).max(2013))
     public birthyear: number;
     @mustBe(a.string().email())
@@ -41,7 +43,7 @@ class User {
     ) {
         this.username = username;
         this.password = password;
-        this.access_token = access_token;
+        this.accessToken = accessToken;
         this.birthyear = birthyear;
         this.email = email;
     }
@@ -85,3 +87,23 @@ expect(result3.error.message).to.eql(
     `child "email" fails because ["email" must be a valid email]`
 );
 ```
+
+You can also invoke `validate` for object literals but you will need to pass the expected schema as `validate(literal, Class)`:
+
+```ts
+const user2 = {
+    username: "root",
+    password: "secret$",
+    accessToken: "token",
+    birthyear: 1989,
+    email: "test@test.com"
+};
+
+const result2 = validate(user2, User);
+expect(result2.error.message).to.eql(
+    `child "password" fails because ["password" with value "secret$" ` +
+    `fails to match the required pattern: /^[a-zA-Z0-9]{3,30}$/]`
+);
+```
+
+You can learn more about the Joi API [here](https://github.com/hapijs/joi/blob/1075980c3e5331b951156635994cc616673935b2/API.md).

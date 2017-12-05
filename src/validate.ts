@@ -4,8 +4,8 @@ import { createSchemaFromMetadata } from "./schema";
 import { NullableValidationMetadata, PropertyValidationSchema } from "./interfaces";
 import { noMetadataWasFound } from "./error";
 
-export function validate<T>(instance: T) {
-    const constructor = Object.getPrototypeOf(instance).constructor;
+export function validate<T>(instance: T, clss?: { new(...args: any[]): T }) {
+    const constructor = clss ? clss : Object.getPrototypeOf(instance).constructor;
     const metadata: NullableValidationMetadata<T> = Reflect.getMetadata(
         METADATA_KEY.VALIDATION_RULES,
         constructor
