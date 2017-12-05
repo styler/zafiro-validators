@@ -56,6 +56,8 @@ export class User {
 
 Then you can validate the entity instances:
 
+#### Example 1: Valid entity
+
 ```ts
 import { validate } from "zafiro-validators";
 import { expect } from "chai";
@@ -71,6 +73,14 @@ const validUser = new User(
 
 const result1 = validate(validUser);
 expect(result1.error).to.eql(null);
+```
+
+#### Example 2: Invalid entity (wrong password)
+
+```ts
+import { validate } from "zafiro-validators";
+import { expect } from "chai";
+import {  User } from "./entities/user";
 
 const invalidUser1 = new User(
     "root",
@@ -85,6 +95,15 @@ expect(result2.error.message).to.eql(
     `child "password" fails because ["password" with value "secret$" ` +
     `fails to match the required pattern: /^[a-zA-Z0-9]{3,30}$/]`
 );
+```
+
+#### Example 3: Invalid entity (wrong email)
+
+```ts
+import { validate } from "zafiro-validators";
+import { expect } from "chai";
+import {  User } from "./entities/user";
+
 
 const invalidUser2 = new User(
     "root",
@@ -99,6 +118,8 @@ expect(result3.error.message).to.eql(
     `child "email" fails because ["email" must be a valid email]`
 );
 ```
+
+#### Example 4: Validating an object literal
 
 You can also validate object literals (as opposed to instances of a class) but you will need to pass the expected schema to `validate `as `validate(literal, Class)`:
 
