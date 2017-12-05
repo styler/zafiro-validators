@@ -11,7 +11,6 @@ export function validate<T>(instance: T, clss?: { new(...args: any[]): T }) {
         constructor
     );
     if (metadata === undefined) {
-        const msg = ``;
         throw new Error(noMetadataWasFound(constructor.name));
     } else {
         const schema = createSchemaFromMetadata<T>(metadata);
